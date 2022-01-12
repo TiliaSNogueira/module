@@ -8,6 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "exportNetworking"
 include ':app'
-include ':networking'
 include ':networking:interface'
 include ':networking:implementation'
