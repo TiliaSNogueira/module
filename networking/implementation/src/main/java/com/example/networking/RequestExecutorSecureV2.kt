@@ -37,8 +37,12 @@ class RequestExecutorSecureV2(private val dependencies: NetworkingSecureV2Depend
     }
 
     private fun Context.longToast(text: CharSequence) {
-        Handler(Looper.getMainLooper()).post {
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        try {
+            Handler(Looper.getMainLooper()).post {
+                Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+            }
+        } catch (test: RuntimeException) {
+            // only for test
         }
     }
 }

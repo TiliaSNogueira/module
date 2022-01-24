@@ -27,14 +27,29 @@ class RequestExecutorSecureV2Test : TestCase() {
     fun testGet() = runBlocking{
         every { logger.info(any<String>()) } returns Unit
         val request = RequestExecutorSecureV2(dependencies)
-        every { request["longToast"](any<CharSequence>()) } returns Unit
+        //every { request["longToast"](any<CharSequence>()) } returns Unit
         val result = request.get()
         assertEquals("GET", result)
     }
 
-    fun testPost() {}
+    fun testPost() = runBlocking{
+        every { logger.info(any<String>()) } returns Unit
+        val request = RequestExecutorSecureV2(dependencies)
+        val result = request.post()
+        assertEquals("POST", result)
+    }
 
-    fun testPut() {}
+    fun testPut() = runBlocking{
+        every { logger.info(any<String>()) } returns Unit
+        val request = RequestExecutorSecureV2(dependencies)
+        val result = request.put()
+        assertEquals("PUT", result)
+    }
 
-    fun testDelete() {}
+    fun testDelete() = runBlocking{
+        every { logger.info(any<String>()) } returns Unit
+        val request = RequestExecutorSecureV2(dependencies)
+        val result = request.delete()
+        assertEquals("DELETE", result)
+    }
 }
